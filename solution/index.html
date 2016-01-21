@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="firechat">
+  <head>
+    <link rel="stylesheet" href="style/example.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+    <script src="app/firechat.js"></script>
+  </head>
+  <body ng-controller="myController">
+    <div class="c l-demo-container">
+      <header>Firebase Chat Demo</header>
+      <div class="c-toolbar">
+        <label for="nameInput">Username:</label>
+        <input type="text" id="nameInput" placeholder="enter a username..." ng-model="username"/>
+      </div>
+      <ul class="c-messages">
+         <li ng-repeat="msg in messages">
+           <strong class="c-username">{{ msg.username }}</strong>{{ msg.content }}
+         </li>
+      </ul>
+      <footer>
+        <input type="text" id="messageInput"  placeholder="Type a message..." ng-model="content" ng-keydown="addMessage($event)"/>
+      </footer>
+    </div>
+  </body>
+</html>
